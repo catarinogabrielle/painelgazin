@@ -11,7 +11,15 @@ export default function Devices() {
 
         <div className={styles.content_grid}>
           <div className={styles.grid}>
-            <h2>CELULAR SAMSUNG GALAXY A22 DUAL - PRETO</h2>
+            <div>
+              <h2>CELULAR SAMSUNG GALAXY A22 DUAL - PRETO</h2>
+              <h6>R$1999,00</h6>
+              <p>(a vista)</p>
+              <h6>R$1999,00</h6>
+              <p>(cartão)</p>
+              <h6>R$1999,00</h6>
+              <p>(carne)</p>
+            </div>
             <h4>10002</h4>
           </div>
         </div>

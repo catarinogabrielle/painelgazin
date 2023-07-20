@@ -1,0 +1,85 @@
+{
+    "data": [
+        {
+            "id": "1",
+            "device": "CELULAR SAMSUNG GALAXY A22 DUAL - PRETO",
+            "price": "1.999,00",
+            "price_card": "2.699,00",
+            "price_desk": "2.999,00",
+            "branch": "10002"
+        },
+        {
+            "id": "2",
+            "device": "CELULAR SAMSUNG GALAXY A22 DUAL - BRANCO",
+            "price": "1.999,00",
+            "price_card": "2.699,00",
+            "price_desk": "2.999,00",
+            "branch": "10002"
+        },
+        {
+            "id": "3",
+            "device": "CELULAR SAMSUNG GALAXY A22 DUAL - AZUL",
+            "price": "1.999,00",
+            "price_card": "2.699,00",
+            "price_desk": "2.999,00",
+            "branch": "10002"
+        },
+        {
+            "id": "4",
+            "device": "CELULAR SAMSUNG GALAXY A23 DUAL - PRETO",
+            "price": "1.999,00",
+            "price_card": "2.699,00",
+            "price_desk": "2.999,00",
+            "branch": "10002"
+        },
+        {
+            "id": "5",
+            "device": "CELULAR SAMSUNG GALAXY A23 DUAL - BRANCO",
+            "price": "1.999,00",
+            "price_card": "2.699,00",
+            "price_desk": "2.999,00",
+            "branch": "10002"
+        },
+        {
+            "id": "6",
+            "device": "CELULAR SAMSUNG GALAXY A23 DUAL - AZUL",
+            "price": "1.999,00",
+            "price_card": "2.699,00",
+            "price_desk": "2.999,00",
+            "branch": "10002"
+        },
+        {
+            "id": "7",
+            "device": "CELULAR SAMSUNG GALAXY A22 128GB 5G DUAL - PRETO",
+            "price": "1.999,00",
+            "price_card": "2.699,00",
+            "price_desk": "2.999,00",
+            "branch": "10002"
+        },
+        {
+            "id": "8",
+            "device": "CELULAR SAMSUNG GALAXY A22 128GB 5G DUAL - PRETO",
+            "price": "1.999,00",
+            "price_card": "2.699,00",
+            "price_desk": "2.999,00",
+            "branch": "10002"
+        },
+        {
+            "id": "9",
+            "device": "CELULAR SAMSUNG GALAXY A22 128GB 5G DUAL - PRETO",
+            "price": "1.999,00",
+            "price_card": "2.699,00",
+            "price_desk": "2.999,00",
+            "branch": "10002"
+        },
+        {
+            "id": "10",
+            "device": "CELULAR SAMSUNG GALAXY A22 128GB 5G DUAL - PRETO",
+            "price": "1.999,00",
+            "price_card": "2.699,00",
+            "price_desk": "2.999,00",
+            "branch": "10002"
+        }
+    ],
+    "length": 10
+}

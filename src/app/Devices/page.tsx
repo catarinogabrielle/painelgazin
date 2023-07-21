@@ -11,7 +11,7 @@ export default function Devices() {
     let address = `devices`
 
     const fetcher = async (address: string) => await Api.get(address).then((res) => res.data)
-    const { data, mutate } = useSWR(address, fetcher, { refreshInterval: 5000 })
+    const { data, mutate } = useSWR(address, fetcher, { refreshInterval: 1000 })
 
     return {
       devices_: data,

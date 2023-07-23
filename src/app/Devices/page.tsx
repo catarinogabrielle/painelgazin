@@ -41,6 +41,7 @@ export default function Devices() {
   }
 
   const { devices_gazin } = useDevicesGazin()
+  let number = devices_gazin?.length
 
   return (
     <main className={styles.main}>
@@ -49,7 +50,7 @@ export default function Devices() {
         <div className={styles.line} />
         {isLoading == false ? (
           <>
-            <text>TOTAL: 0</text>
+            <text>TOTAL: {number}</text>
 
             <div className={styles.content_grid}>
               {devices_gazin?.map((item: { produto: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; idproduto: React.Key | null | undefined; cor: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; precopartida: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; precoaprazo: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.PromiseLikeOfReactNode | null | undefined }) => {

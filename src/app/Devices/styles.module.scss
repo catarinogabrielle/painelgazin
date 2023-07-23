@@ -18,24 +18,12 @@
     font-size: 24px;
   }
 
-  text {
-    color: #949494;
-    font-size: 20px;
-    font-weight: 300;
-    margin-top: 35px;
-  }
-
   @media screen and (max-width: 700px) {
     padding: 0 13px;
     margin-top: 120px;
 
     h1 {
       font-size: 17px;
-    }
-
-    text {
-      font-size: 14px;
-      margin-top: 25px;
     }
   }
 }
@@ -45,6 +33,60 @@
   width: 100%;
   height: 1px;
   margin-top: 8px;
+}
+
+.head {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin: 30px 0 0 0;
+  width: 95%;
+  justify-content: space-between;
+
+  text {
+    color: #949494;
+    font-size: 20px;
+    font-weight: 300;
+  }
+
+  @media screen and (max-width: 700px) {
+    flex-direction: column-reverse;
+    align-items: normal;
+
+    text {
+      font-size: 14px;
+      margin: 20px 0 0 0;
+    }
+  }
+}
+
+.boxInput {
+  display: flex;
+  border: 1px solid rgba(167, 167, 167, 0.3);
+  width: 280px;
+
+  input {
+    background: #f1f1f1;
+    border: none;
+    height: 42px;
+    width: 280px;
+    padding-left: 10px;
+    font-size: 14px;
+    color: #312783;
+  }
+}
+
+.buttonSearch {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: none;
+  border-right: 1px solid #E1E1E1;
+  padding: 0 12px;
+}
+
+.iconSearch {
+  color: rgba(117, 117, 117, 0.3);
 }
 
 .content_grid {

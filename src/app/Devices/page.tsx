@@ -29,6 +29,7 @@ export default function Devices() {
   const valueApi = devices_?.map((item: { device: any }) => (item.device))
   const valueFilial = devices_?.map((item: { branch: any }) => (item.branch))
   const valueColor = devices_?.map((item: { color: any }) => (item.color))
+  const valueVoltagem = devices_?.map((item: { voltagem: any }) => (item.voltagem))
 
   function useDevicesGazin() {
     let address = `celulares?idfilial=${search}&token=Gazin-tech%C3%87$2y$10$85Udhj9L4Pa9XULE5RxyTu0Yv5G0POBiS7u2Yb693P9o6Ctege7cq%C3%87Gazin-tech`
@@ -81,11 +82,11 @@ export default function Devices() {
             </div>
 
             <div className={styles.content_grid}>
-              {devices_gazin?.map((item: { produto: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; cor: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; idproduto: React.Key | null | undefined; precopartida: string; precoaprazo: string }) => {
-                if (valueApi == item.produto && valueFilial == search && valueColor == item.cor) return (
+              {devices_gazin?.map((item: { produto: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; cor: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; voltagem: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; idproduto: React.Key | null | undefined; precopartida: string; precoaprazo: string }) => {
+                if (valueApi == item.produto && valueFilial == search && valueColor == item.cor && valueVoltagem == item.voltagem) return (
                   <div key={item.idproduto} className={styles.grid}>
                     <div>
-                      <h2>{item.produto} - {item.cor}</h2>
+                      <h2>{item.produto} {item.voltagem} - {item.cor}</h2>
                     </div>
 
                     <div>

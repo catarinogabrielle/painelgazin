@@ -24,12 +24,7 @@ export default function Devices() {
     }
   }
 
-  const { devices_, isLoading } = useDevices()
-
-  const valueApi = devices_?.map((item: { device: any }) => (item.device))
-  const valueFilial = devices_?.map((item: { branch: any }) => (item.branch))
-  const valueColor = devices_?.map((item: { color: any }) => (item.color))
-  const valueVoltagem = devices_?.map((item: { voltagem: any }) => (item.voltagem))
+  const { devices_ } = useDevices()
 
   function useDevicesGazin() {
     let address = `celulares?idfilial=${search}&token=Gazin-tech%C3%87$2y$10$85Udhj9L4Pa9XULE5RxyTu0Yv5G0POBiS7u2Yb693P9o6Ctege7cq%C3%87Gazin-tech`
@@ -46,8 +41,6 @@ export default function Devices() {
 
   const { devices_gazin } = useDevicesGazin()
 
-  console.log(devices_gazin)
-
   function mask(input: string): string {
     input = parseFloat(input).toFixed(2)
     input = input.toString().replace('.', ',')
@@ -56,71 +49,60 @@ export default function Devices() {
     return 'R$ ' + valor
   }
 
-  let number = devices_gazin?.length
-
   return (
     <main className={styles.main}>
       <div className={styles.content}>
         <h1>APARELHOS CONECTADOS</h1>
         <div className={styles.line} />
-        {devices_gazin !== undefined ? (
-          <>
-            <div className={styles.head}>
-              <text>TOTAL: {number}</text>
+        <div className={styles.head}>
+          <text>TOTAL: 5</text>
 
-              <div className={styles.boxInput}>
-                <div className={styles.buttonSearch} title="pesquisar">
-                  <FiSearch className={styles.iconSearch} size={17} />
-                </div>
-
-                <DebounceInput
-                  debounceTimeout={500}
-                  placeholder={search}
-                  onChange={(event) => setSearch(event.target.value)}
-                />
-              </div>
+          <div className={styles.boxInput}>
+            <div className={styles.buttonSearch} title="pesquisar">
+              <FiSearch className={styles.iconSearch} size={17} />
             </div>
 
-            <div className={styles.content_grid}>
-              {devices_gazin?.map((item: { produto: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; cor: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; voltagem: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; idproduto: React.Key | null | undefined; precopartida: string; precoaprazo: string }) => {
-                if (valueApi == item.produto && valueFilial == search && valueColor == item.cor && valueVoltagem == item.voltagem) return (
-                  <div key={item.idproduto} className={styles.grid}>
-                    <div>
-                      <h2>{item.produto} {item.voltagem} - {item.cor}</h2>
-                    </div>
-
-                    <div>
-                      <h6>{mask(item.precopartida)}</h6>
-                      <p>(a vista)</p>
-                    </div>
-
-                    <div>
-                      <h6>{mask(item.precoaprazo)}</h6>
-                      <p>(cartão)</p>
-                    </div>
-
-                    <div>
-                      <h6>{mask(item.precoaprazo)}</h6>
-                      <p>(carne)</p>
-                    </div>
-                    <h4>{search}</h4>
-                  </div>
-                )
-              })}
-            </div>
-          </>
-        ) : (
-          <div style={{ marginTop: 20 }}>
-            <ThreeDots
-              height="60"
-              width="60"
-              radius="9"
-              color='#180c72'
-              ariaLabel='three-dots-loading'
+            <DebounceInput
+              debounceTimeout={500}
+              placeholder={search}
+              onChange={(event) => setSearch(event.target.value)}
             />
           </div>
-        )}
+        </div>
+
+        <div className={styles.content_grid}>
+          <div className={styles.grid}>
+            <div>
+              <h2>nome do produto</h2>
+            </div>
+
+            <div>
+              <h6>R$0.000,00</h6>
+              <p>(a vista)</p>
+            </div>
+
+            <div>
+              <h6>R$0.000,00</h6>
+              <p>(cartão)</p>
+            </div>
+
+            <div>
+              <h6>R$0.000,00</h6>
+              <p>(carne)</p>
+            </div>
+            <h4>10002</h4>
+          </div>
+        </div>
       </div>
     </main>
   )
 }
+ /*<div style={{ marginTop: 20 }}>
+    <ThreeDots
+      height="60"
+      width="60"
+      radius="9"
+      color='#180c72'
+      ariaLabel='three-dots-loading'
+    />
+  </div>*/

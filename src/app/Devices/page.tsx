@@ -8,14 +8,9 @@ import { ThreeDots } from 'react-loader-spinner'
 import { DebounceInput } from 'react-debounce-input'
 import { FiSearch } from "react-icons/fi"
 
-type LengthData = {
-  quantidade: number
-}
-
-
 export default function Devices() {
   const [search, setSearch] = useState('10002')
-  const [length, setLength] = SetStateAction<LengthData | undefined>()
+  const [length, setLength] = useState()
 
   function useDevices() {
     let address = `devices`
@@ -115,9 +110,5 @@ export default function Devices() {
       </div>
     </main>
   )
-}
-
-function SetStateAction<T>(): [any, any] {
-  throw new Error('Function not implemented.')
 }
 

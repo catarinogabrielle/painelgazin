@@ -90,6 +90,7 @@ export default function Devices() {
                         <h6>R$0.000,00</h6>
                         <p>(carne)</p>
                       </div>
+
                       <h4>{item.branch}</h4>
                     </div>
                   )

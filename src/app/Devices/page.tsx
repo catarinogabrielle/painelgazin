@@ -28,7 +28,7 @@ export default function Devices() {
   const { devices, isLoading } = useDevices()
 
   const count = () => {
-    const devices_app = devices?.map(item => item.branch)
+    const devices_app = devices?.map((item: { branch: any }) => item.branch)
     var quantidade = 0
 
     for (var i = 0; i < devices?.length; i++) {
@@ -68,7 +68,7 @@ export default function Devices() {
             </div>
 
             <div className={styles.content_grid}>
-              {devices?.map(item => {
+              {devices?.map((item: { branch: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.PromiseLikeOfReactNode | null | undefined; id: React.Key | null | undefined; device: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined; color: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | React.PromiseLikeOfReactNode | null | undefined }) => {
                 if (item.branch === search)
                   return (
                     <div key={item.id} className={styles.grid}>

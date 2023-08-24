@@ -76,18 +76,18 @@ export default function Devices() {
                         <h2>{item.device} {item.color}</h2>
                       </div>
 
-                      <div>
-                        <h6>R$0.000,00</h6>
+                      <div className={styles.value}>
+                        <h6>{item.cash}</h6>
                         <p>(a vista)</p>
                       </div>
 
-                      <div>
-                        <h6>R$0.000,00</h6>
+                      <div className={styles.value}>
+                        <h6>{item.card}</h6>
                         <p>(cartão)</p>
                       </div>
 
-                      <div>
-                        <h6>R$0.000,00</h6>
+                      <div className={styles.value}>
+                        <h6>{item.wallet}</h6>
                         <p>(carne)</p>
                       </div>
 

@@ -4,12 +4,13 @@ import React, { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import useSWR from "swr"
 import { Api } from "../../services/api"
+import Header from '../../components/Header'
 import { ThreeDots } from 'react-loader-spinner'
 import { DebounceInput } from 'react-debounce-input'
 import { FiSearch } from "react-icons/fi"
 
 export default function Devices() {
-  const [search, setSearch] = useState('10002')
+  const [search, setSearch] = useState('')
   const [length, setLength] = useState()
 
   function useDevices() {
@@ -28,7 +29,7 @@ export default function Devices() {
   const { devices, isLoading } = useDevices()
 
   const count = () => {
-    const devices_app = devices?.map(item => item.branch)
+    const devices_app = devices?.map((item: { branch: any }) => item.branch)
     var quantidade = 0
 
     for (var i = 0; i < devices?.length; i++) {
@@ -44,15 +45,60 @@ export default function Devices() {
     count()
   }, [isLoading, search])
 
+  const allDevicesLayout = (item: { branch: any; id?: any; device?: any; color?: any; cash?: any; card?: any; wallet?: any }) => {
+    return (
+      <div key={item.id} className={styles.grid}>
+        <div>
+          <h2>{item.device} {item.color}</h2>
+        </div>
+
+        <div className={styles.value}>
+          <h6>{item.cash}</h6>
+          <p>(a vista)</p>
+        </div>
+
+        <div className={styles.value}>
+          <h6>{item.card}</h6>
+          <p>(cartão)</p>
+        </div>
+
+        <div className={styles.value}>
+          <h6>{item.wallet}</h6>
+          <p>(carne)</p>
+        </div>
+
+        <h4>{item.branch}</h4>
+      </div>
+    )
+  }
+
+  const allDevices = (item: { branch: string }) => {
+    if (search == '') {
+      return (
+        <>
+          {allDevicesLayout(item)}
+        </>
+      )
+    } else {
+      if (item.branch === search)
+        return (
+          <>
+            {allDevicesLayout(item)}
+          </>
+        )
+    }
+  }
+
   return (
     <main className={styles.main}>
+      <Header />
       <div className={styles.content}>
         <h1>APARELHOS CONECTADOS</h1>
         <div className={styles.line} />
         {isLoading == false ? (
           <>
             <div className={styles.head}>
-              <text>TOTAL: {length}</text>
+              <text>TOTAL: {search == '' ? devices?.length : length}</text>
 
               <div className={styles.boxInput}>
                 <div className={styles.buttonSearch} title="pesquisar">
@@ -68,33 +114,11 @@ export default function Devices() {
             </div>
 
             <div className={styles.content_grid}>
-              {devices?.map(item => {
-                if (item.branch === search)
-                  return (
-                    <div key={item.id} className={styles.grid}>
-                      <div>
-                        <h2>{item.device} {item.color}</h2>
-                      </div>
-
-                      <div className={styles.value}>
-                        <h6>{item.cash}</h6>
-                        <p>(a vista)</p>
-                      </div>
-
-                      <div className={styles.value}>
-                        <h6>{item.card}</h6>
-                        <p>(cartão)</p>
-                      </div>
-
-                      <div className={styles.value}>
-                        <h6>{item.wallet}</h6>
-                        <p>(carne)</p>
-                      </div>
-
-                      <h4>{item.branch}</h4>
-                    </div>
-                  )
-              })}
+              {devices?.map((item: { branch: string }) => (
+                <>
+                  {allDevices(item)}
+                </>
+              ))}
             </div>
           </>
         ) : (

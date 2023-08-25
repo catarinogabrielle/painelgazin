@@ -19,9 +19,8 @@ export default function Header() {
         </div>
 
         <nav className={styles.navigation_header}>
-          <Link href={'/Home'} style={{ textDecoration: 'none' }}>
-            <text>Home</text>
-          </Link>
+          <text><Link href={'/Home'} style={{ textDecoration: 'none', color: '#fff' }}>Home</Link></text>
+          <text><Link href={'/'} style={{ textDecoration: 'none', color: '#fff' }}>Sair</Link></text>
         </nav>
       </div>
     </header>

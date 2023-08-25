@@ -1,7 +1,6 @@
 import styles from './styles.module.scss'
 import Link from 'next/link'
 import Image from 'next/image'
-import { BsPhone } from "react-icons/bs"
 
 export default function Login() {
   return (

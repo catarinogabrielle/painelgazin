@@ -91,7 +91,7 @@ export default function Devices() {
 
   return (
     <main className={styles.main}>
-      <Header />
+      <Header /> 
       <div className={styles.content}>
         <h1>APARELHOS CONECTADOS</h1>
         <div className={styles.line} />
@@ -107,7 +107,7 @@ export default function Devices() {
 
                 <DebounceInput
                   debounceTimeout={500}
-                  placeholder={search}
+                  placeholder="Pesquisar filial"
                   onChange={(event) => setSearch(event.target.value)}
                 />
               </div>

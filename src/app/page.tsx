@@ -1,8 +1,14 @@
+"use client"
+
 import styles from './styles.module.scss'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useState } from 'react'
+import { AiOutlineLoading3Quarters } from "react-icons/ai"
 
 export default function Login() {
+  const [loading, setLoading] = useState(true)
+
   return (
     <div className={styles.container}>
       <Image
@@ -24,7 +30,7 @@ export default function Login() {
         </div>
 
         <Link style={{ display: 'flex', width: '100%' }} href={'/Home'}>
-          <button className={styles.button}>Acessar</button>
+          <button className={styles.button}>{loading ? <AiOutlineLoading3Quarters className={styles.icon} color="#F4F4F4" size={20} /> : <text>Continuar</text>}</button>
         </Link>
       </div>
     </div>

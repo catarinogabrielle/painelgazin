@@ -52,7 +52,7 @@ export default function Dashboard() {
               </div>
             </Link>
 
-            <a href="/logogazin.png" download className={styles.card}>
+            <a href="/APK_GAZIN_3.0.0.RAR" download className={styles.card}>
               <BsCloudDownload className={styles.icon} />
               <text>Baixar APK</text>
             </a>

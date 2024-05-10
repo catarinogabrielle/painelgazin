@@ -2,9 +2,11 @@ import styles from './styles.module.scss'
 import Link from 'next/link'
 import { BsPhone } from "react-icons/bs"
 import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 
 export default function Home() {
   return (
+    <>
     <main className={styles.main}>
       <Header />
       <div className={styles.content}>
@@ -16,5 +18,7 @@ export default function Home() {
         </Link>
       </div>
     </main>
+    <Footer />
+    </>
   )
 }

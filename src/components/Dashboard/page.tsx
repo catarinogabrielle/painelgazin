@@ -4,7 +4,7 @@ import { useState } from 'react'
 import styles from './styles.module.scss'
 import Image from 'next/image'
 import Link from 'next/link'
-import { BsPhone, BsLaptop } from "react-icons/bs"
+import { BsPhone, BsLaptop, BsCloudDownload } from "react-icons/bs"
 import Footer from '../Footer'
 import Devices from '../Devices/page'
 
@@ -51,6 +51,11 @@ export default function Dashboard() {
                 <text>App Notebooks</text>
               </div>
             </Link>
+
+            <a href="/logogazin.png" download className={styles.card}>
+              <BsCloudDownload className={styles.icon} />
+              <text>Baixar APK</text>
+            </a>
           </div>
         )}
       </main>

@@ -27,7 +27,7 @@
   h1 {
     font-size: 25px;
     color: #000;
-    font-weight: lighter;
+    font-weight: 400 !important;
   }
 
   input {
@@ -94,7 +94,7 @@
   h1 {
     font-size: 17px;
     color: #ffffff;
-    font-weight: 200;
+    font-weight: 200 !important;
   }
 }
 
@@ -116,19 +116,19 @@
   h1 {
     font-size: 25px;
     color: #000000;
-    font-weight: 500;
+    font-weight: 500 !important;
     margin-bottom: 8px;
   }
 
   label {
     font-size: 15px;
     color: #3a3a3a;
-    font-weight: 200;
+    font-weight: 200 !important;
   }
 
   p {
     font-size: 19px;
     color: #141414;
-    font-weight: 500;
+    font-weight: 500 !important;
   }
 }

@@ -5,7 +5,6 @@ import styles from './styles.module.scss'
 import Image from 'next/image'
 
 import { ApiDevices } from "../../services/api_gazin"
-import json from "../Application/json.json"
 
 export default function Devices() {
   const [filtro, setFiltro] = useState(true)
@@ -18,7 +17,7 @@ export default function Devices() {
   const [devices, setDevices] = useState([])
 
   async function loadData() {
-    await ApiDevices.get(`/celulares?idfilial=${branch == '' ? 10002 : branch}&token=Gazin-tech%C3%87$2y$10$85Udhj9L4Pa9XULE5RxyTu0Yv5G0POBiS7u2Yb693P9o6Ctege7cq%C3%87Gazin-tech`).then(response => {
+    await ApiDevices.get(`/celulares?idfilial=${branch == '' ? '10002' : branch}&token=Gazin-tech%C3%87$2y$10$85Udhj9L4Pa9XULE5RxyTu0Yv5G0POBiS7u2Yb693P9o6Ctege7cq%C3%87Gazin-tech`).then(response => {
       setDevices(response.data)
 
     }).catch((err) => {
@@ -36,7 +35,7 @@ export default function Devices() {
     }, 600000)
   }, [time])
 
-  const Marca = json?.map((item: { marca: string; }) => item.marca)
+  const Marca = devices?.map((item: { marca: string; }) => item.marca)
   const uniqueMarcaList = [...new Set(Marca)]
 
   function handleProductBrand(jsonData: any[], marca: string): string[] {
@@ -196,21 +195,21 @@ export default function Devices() {
 
                 <select style={product == 'Modelo' ? { backgroundColor: 'transparent' } : { backgroundColor: '#312783', color: '#fff' }} name="Modelo" onChange={(event) => setProduct(event.target.value)} >
                   <option value="Modelo">Modelo</option>
-                  {handleProductBrand(json, brand).map(item => (
+                  {handleProductBrand(devices, brand).map(item => (
                     <option key={item} value={item}>{item}</option>
                   ))}
                 </select>
 
                 <select style={color == 'Cor' ? { backgroundColor: 'transparent' } : { backgroundColor: '#312783', color: '#fff' }} name="Cor" onChange={(event) => setColor(event.target.value)} >
                   <option value="Cor">Cor</option>
-                  {handleProductColor(json, product).map(item => (
+                  {handleProductColor(devices, product).map(item => (
                     <option key={item} value={item}>{item}</option>
                   ))}
                 </select>
 
                 <select style={voltagem == 'Voltagem' ? { backgroundColor: 'transparent' } : { backgroundColor: '#312783', color: '#fff' }} name="Voltagem" onChange={(event) => setVoltagem(event.target.value)} >
                   <option value="Voltagem">Voltagem</option>
-                  {handleProductVolt(json, product).map(item => (
+                  {handleProductVolt(devices, product).map(item => (
                     <option key={item} value={item}>{item}</option>
                   ))}
                 </select>
@@ -236,28 +235,28 @@ export default function Devices() {
             <div className={styles.contentInfo}>
               <div className={styles.boxInfo}>
                 <h1>{product} - {color}</h1>
-                {HandleLowestPrice(json, 'A Vista') && (
-                  <label key={HandleLowestPrice(json, 'A Vista').idproduto + '4'}>{HandleLowestPrice(json, 'A Vista').idproduto}</label>
+                {HandleLowestPrice(devices, 'A Vista') && (
+                  <label key={HandleLowestPrice(devices, 'A Vista').idproduto + '4'}>{HandleLowestPrice(devices, 'A Vista').idproduto}</label>
                 )}
               </div>
 
-              <div className={styles.boxInfo}>
-                {HandleLowestPrice(json, 'A Vista') && (
-                  <p key={HandleLowestPrice(json, 'A Vista').idproduto + '1'}><text style={{ color: '#312783', fontSize: 30 }}>{mask(HandleLowestPrice(json, 'A Vista').precopartida)}</text> (A Vista)</p>
-                )}
-              </div>
+              {HandleLowestPrice(devices, 'A Vista') && (
+                <div className={styles.boxInfo}>
+                  <p key={HandleLowestPrice(devices, 'A Vista').idproduto + '1'}><text style={{ color: '#312783', fontSize: 30 }}>{mask(HandleLowestPrice(devices, 'A Vista').precopartida)}</text> (A Vista)</p>
+                </div>
+              )}
 
-              <div className={styles.boxInfo}>
-                {HandleLowestPrice(json, 'Cartão') && (
-                  <p key={HandleLowestPrice(json, 'Cartão').idproduto + '2'}><text style={{ color: '#312783', fontSize: 30 }}>{mask(HandleLowestPrice(json, 'Cartão').precoaprazo)}</text>  Parcelas em até<text style={{ color: '#6d057d', fontSize: 24 }}> {HandleLowestPrice(json, 'Cartão').prazofinal}x </text>no cartão.</p>
-                )}
-              </div>
+              {HandleLowestPrice(devices, 'Cartão') && (
+                <div className={styles.boxInfo}>
+                  <p key={HandleLowestPrice(devices, 'Cartão').idproduto + '2'}><text style={{ color: '#312783', fontSize: 30 }}>{mask(HandleLowestPrice(devices, 'Cartão').precoaprazo)}</text>  Parcelas em até<text style={{ color: '#6d057d', fontSize: 24 }}> {HandleLowestPrice(devices, 'Cartão').prazofinal}x </text>no cartão.</p>
+                </div>
+              )}
 
-              <div className={styles.boxInfo}>
-                {HandleLowestPrice(json, 'Carteira') && (
-                  <p key={HandleLowestPrice(json, 'Carteira').idproduto + '2'}><text style={{ color: '#312783', fontSize: 30 }}>{mask(HandleLowestPrice(json, 'Carteira').precoaprazo)}</text>  Parcelas em até<text style={{ color: '#6d057d', fontSize: 24 }}> {HandleLowestPrice(json, 'Carteira').prazofinal}x </text>no carne.</p>
-                )}
-              </div>
+              {HandleLowestPrice(devices, 'Carteira') && (
+                <div className={styles.boxInfo}>
+                  <p key={HandleLowestPrice(devices, 'Carteira').idproduto + '2'}><text style={{ color: '#312783', fontSize: 30 }}>{mask(HandleLowestPrice(devices, 'Carteira').precoaprazo)}</text>  Parcelas em até<text style={{ color: '#6d057d', fontSize: 24 }}> {HandleLowestPrice(devices, 'Carteira').prazofinal}x </text>no carne.</p>
+                </div>
+              )}
             </div>
           )}
         </>

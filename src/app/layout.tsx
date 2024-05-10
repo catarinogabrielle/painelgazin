@@ -1,10 +1,4 @@
 import './globals.css'
-import { Roboto } from 'next/font/google'
-
-const roboto = Roboto({
-  subsets: ['latin'],
-  weight: '300'
-})
 
 export const metadata = {
   title: 'Painel Gazin',
@@ -19,7 +13,7 @@ export default function RootLayout({
 
   return (
     <html lang="pt-BR">
-      <body className={roboto.className}>
+      <body>
         {children}
       </body>
     </html>

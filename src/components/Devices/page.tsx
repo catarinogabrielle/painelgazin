@@ -4,11 +4,9 @@ import React, { useEffect, useState } from 'react'
 import styles from './styles.module.scss'
 import useSWR from "swr"
 import { Api } from "../../services/api"
-import Header from '../../components/Header'
 import { ThreeDots } from 'react-loader-spinner'
 import { DebounceInput } from 'react-debounce-input'
 import { FiSearch } from "react-icons/fi"
-import Footer from '../../components/Footer'
 
 export default function Devices() {
   const [search, setSearch] = useState('')
@@ -91,53 +89,49 @@ export default function Devices() {
   }
 
   return (
-    <>
-      <main className={styles.main}>
-        <Header />
-        <div className={styles.content}>
-          <h1>APARELHOS CONECTADOS</h1>
-          <div className={styles.line} />
-          {isLoading == false ? (
-            <>
-              <div className={styles.head}>
-                <text>TOTAL: {search == '' ? devices?.length : length}</text>
+    <main className={styles.main}>
+      <div className={styles.content}>
+        <h1>APARELHOS CONECTADOS</h1>
+        <div className={styles.line} />
+        {isLoading == false ? (
+          <>
+            <div className={styles.head}>
+              <text>TOTAL: {search == '' ? devices?.length : length}</text>
 
-                <div className={styles.boxInput}>
-                  <div className={styles.buttonSearch} title="pesquisar">
-                    <FiSearch className={styles.iconSearch} size={17} />
-                  </div>
-
-                  <DebounceInput
-                    debounceTimeout={500}
-                    placeholder="Pesquisar filial"
-                    onChange={(event) => setSearch(event.target.value)}
-                  />
+              <div className={styles.boxInput}>
+                <div className={styles.buttonSearch} title="pesquisar">
+                  <FiSearch className={styles.iconSearch} size={17} />
                 </div>
-              </div>
 
-              <div className={styles.content_grid}>
-                {devices?.map((item: { branch: string }) => (
-                  <>
-                    {allDevices(item)}
-                  </>
-                ))}
+                <DebounceInput
+                  debounceTimeout={500}
+                  placeholder="Pesquisar filial"
+                  onChange={(event) => setSearch(event.target.value)}
+                />
               </div>
-            </>
-          ) : (
-            <div className={styles.loader}>
-              <ThreeDots
-                height="60"
-                width="60"
-                radius="9"
-                color='#180c72'
-                ariaLabel='three-dots-loading'
-              />
             </div>
-          )}
-        </div>
-      </main>
-      <Footer />
-    </>
+
+            <div className={styles.content_grid}>
+              {devices?.map((item: { branch: string }) => (
+                <>
+                  {allDevices(item)}
+                </>
+              ))}
+            </div>
+          </>
+        ) : (
+          <div className={styles.loader}>
+            <ThreeDots
+              height="60"
+              width="60"
+              radius="9"
+              color='#180c72'
+              ariaLabel='three-dots-loading'
+            />
+          </div>
+        )}
+      </div>
+    </main>
   )
 }
 
